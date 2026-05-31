@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Keith Wang – Professional Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #1a1816;
+    --ink-mid:    #262321; /* High-contrast readable dark body text */
+    --ink-light:  #706a65;
+    --gold:       #b8892a;
+    --gold-light: #e8d199;
+    --gold-faint: #f7f0dc;
+    --cream:      #faf8f4;
+    --rule:       #d4c9a8;
+    --sidebar-bg: #1a1816;
+    --sidebar-text: #f0ebe0;
+    --sidebar-muted: #b8b2a6;
+    --sidebar-rule: #3a3530;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #edeae2;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 48px 24px;
+    color: var(--ink);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .page {
+    width: 900px;
+    min-height: 1180px;
+    background: var(--cream);
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 16px rgba(0,0,0,0.10);
+  }
+
+  .sidebar {
+    background: var(--sidebar-bg);
+    padding: 48px 28px 48px 32px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .photo-wrap {
+    width: 100%;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    margin-bottom: 32px;
+  }
+
+  .photo-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    filter: grayscale(10%);
+  }
+
+  .sidebar-section {
+    margin-bottom: 32px;
+  }
+
+  .sidebar-label {
+    font-size: 9.5px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+
+  .sidebar-rule {
+    height: 1px;
+    background: var(--sidebar-rule);
+    margin-bottom: 16px;
+  }
+
+  .edu-entry {
+    margin-bottom: 24px;
+  }
+
+  .edu-school {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--sidebar-text);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+
+  .edu-degree {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--sidebar-muted);
+    line-height: 1.45;
+  }
+
+  .edu-date {
+    font-size: 12.5px;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1.4;
+    margin-top: 4px;
+  }
+
+  .main {
+    padding: 52px 48px 52px 44px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 24px;
+    margin-bottom: 32px;
+  }
+
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 48px;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+
+  .title-line {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    line-height: 1.6;
+  }
+
+  .values-line {
+    font-style: italic;
+    text-transform: none;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  .contact-line {
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .contact-line a {
+    color: var(--ink-mid);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+  }
+
+  .contact-line a:hover {
+    border-bottom-color: var(--gold);
+  }
+
+  .contact-line .wa-link {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .section {
+    margin-bottom: 32px;
+  }
+
+  .section-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+
+  .summary-text {
+    font-size: 15.5px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink-mid);
+  }
+
+  .exp-entry {
+    margin-bottom: 24px;
+    padding-left: 16px;
+    border-left: 2px solid var(--gold-light);
+    position: relative;
+  }
+
+  .exp-entry::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .exp-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 2px;
+  }
+
+  .exp-company {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .exp-date {
+    font-size: 11px;
+    font-weight: 300;
+    color: var(--ink-light);
+    white-space: nowrap;
+    letter-spacing: 0.04em;
+  }
+
+  .exp-role {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .exp-bullets li {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.60;
+    color: var(--ink-mid);
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: '-';
+    position: absolute;
+    left: 0;
+    color: var(--gold-light);
+    font-size: 14px;
+    top: 0px;
+  }
+
+  @media print {
+    body { background: none; padding: 0; }
+    .page { box-shadow: none; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <aside class="sidebar">
+    <div class="photo-wrap">
+      <img src="https://8605291.fs1.hubspotusercontent-na2.net/hubfs/8605291/Clinician%20Photos/keith.png" alt="Keith Wang profile photo" />
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-label">Education</div>
+      <div class="sidebar-rule"></div>
+
+      <div class="edu-entry">
+        <div class="edu-school">Stanford University</div>
+        <div class="edu-degree">Certificate in AI in Healthcare Specialization</div>
+        <div class="edu-date">2025 - 2025</div>
+      </div>
+
+      <div class="edu-entry">
+        <div class="edu-school">University of London</div>
+        <div class="edu-degree">Bachelor's in Banking &amp; Finance</div>
+        <div class="edu-date">2006 - 2010</div>
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="header">
+      <div class="name">Keith Wang</div>
+      <div class="title-line">APAC Business Development Leader &nbsp;·&nbsp; Partnerships &amp; Digital Health Expert</div>
+      <div class="title-line values-line">Servant Leadership, Stewardship, Entrepreneurial</div>
+      <div class="contact-line">
+        <span>Singapore</span>
+        <span><a href="mailto:keithwang5@gmail.com">keithwang5@gmail.com</a></span>
+        <span><a href="https://wa.me/6596584235" class="wa-link">+65 96584235 (WhatsApp)</a></span>
+        <span><a href="https://www.linkedin.com/in/keithwang5" target="_blank">linkedin.com/in/keithwang5</a></span>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-label">Profile</div>
+      <p class="summary-text">With a proven track record of structuring complex healthcare partnerships and deals, Keith brings a unique combination of entrepreneurial agility with corporate business development expertise. Expert at aligning clinical stakeholders, securing first-of-its-kind digital infrastructure clearances, and scaling enterprise-tier B2B health solutions across the APAC ecosystem.</p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Experience</div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <div class="exp-company">Bonfire Health / Nightingale Pediatrics</div>
+          <div class="exp-date">2020 - Present</div>
+        </div>
+        <div class="exp-role">CEO &amp; Founder</div>
+        <ul class="exp-bullets">
+          <li>Founded an independent Employee Assistance Program (EAP) brokerage for MNC clients and specialist family mental health clinics in Singapore, acting as the primary commercial architect.</li>
+          <li>Acquired a qualified pipeline of over 200 MNC accounts with an average headcount of 1,000 employees per organization (representing an addressable pool of 200,000+ corporate members) with full ownership of key account management and new business development responsibilities.</li>
+          <li>Secured high-value channel distribution partnerships with Tier-1 risk carriers and international brokerages, including Aon and Singlife, for the family mental health business vertical within a compressed 2-year timeline.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <div class="exp-company">Roche Diagnostics</div>
+          <div class="exp-date">2022 - 2023</div>
+        </div>
+        <div class="exp-role">Head of Digital Diagnostics, Singapore</div>
+        <ul class="exp-bullets">
+          <li>Spearheaded market entry and directed strategic positioning to win competitive digital diagnostics tenders within the Singapore market, rapidly mastering the In Vitro Diagnostics (IVD) ecosystem.</li>
+          <li>Co-developed a high-impact strategic partnership and commercialization roadmap with MiRXES to accelerate co-innovation and market access for advanced health platforms.</li>
+          <li>Co-designed Singapore’s historic, first-ever Cloud-approved architecture with Synapxe, establishing the business as the pioneer biotechnology/IVD multinational corporation to achieve this stringent data security and governance milestone.</li>
+          <li>Managed high-value commercial growth pipelines and drove senior stakeholder alignment with public health policymakers, regulatory bodies, and major institutional hospital clients.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <div class="exp-company">Tokio Marine Asia</div>
+          <div class="exp-date">2016 - 2019</div>
+        </div>
+        <div class="exp-role">Digital Strategy, APAC (Employee Benefits &amp; Corporate Transformation)</div>
+        <ul class="exp-bullets">
+          <li>Spearheaded the regional digital transformation roadmap and platform monetization strategy for the insurer's regional Employee Benefits (EB) portfolio.</li>
+          <li>Managed and directed the cross-border launch of the company's first regional EB application, Tokio Marine Care™, scaling the asset across 3 APAC countries.</li>
+          <li>Led the end-to-end implementation of 5 strategic go-to-market (GTM) programs, delivering a combined, auditable sales ROI of 267% across the regional footprint.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <div class="exp-company">Microsoft</div>
+          <div class="exp-date">2014 - 2016</div>
+        </div>
+        <div class="exp-role">Campaign Manager, APAC</div>
+        <ul class="exp-bullets">
+          <li>Grew Azure sales for the region through integrated sales and marketing campaigns.</li>
+        </ul>
+      </div>
+
+      <div class="exp-entry">
+        <div class="exp-header">
+          <div class="exp-company">Various Clients</div>
+          <div class="exp-date">2010 - 2014</div>
+        </div>
+        <div class="exp-role">Independent GTM Consultant</div>
+        <ul class="exp-bullets">
+          <li>Advised on and executed comprehensive go-to-market strategies for SME owners and MNC marketing divisions, specializing in B2C verticals (healthcare, banking, insurance) and B2B sectors (enterprise cloud and software platforms).</li>
+        </ul>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+</body>
+</html>
